@@ -1,0 +1,162 @@
+/* Bubble Animation */
+
+.top-section,
+.bottom-section {
+  height: 48vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+}
+
+h1 {
+  z-index: 1; /* Ensure text stays on top of bubbles */
+  text-align: center;
+  margin: 0;
+}
+
+.bubble-wrapper {
+  height: 100%;
+  width: 100%;
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bubble {
+  height: max(500px, 50vw);
+  width: max(500px, 50vw);
+
+  /* background-color: lightcoral; */
+  /* border-radius: 100%; */
+
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+
+  animation: wave ease-in-out infinite;
+}
+
+@keyframes wave {
+  from,
+  to {
+    transform: translate(-50%, 0%);
+  }
+
+  50% {
+    transform: translate(-50%, -20%);
+  }
+}
+
+/* -------------------------------------------------------------------- */
+/* Balloon Animation */
+.ballon-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Make sure it's tall enough to see the bubbles */
+  overflow: hidden;
+}
+
+.ballon {
+  position: absolute;
+  bottom: 0;
+  width: 30px;
+  height: 50px;
+  background-color: pink;
+  border-radius: 50% 50% 0 0;
+  animation: rise 5s ease-in-out infinite;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100vh);
+  }
+}
+
+/* -------------------------------------------------------------------- */
+/* Border Animation */
+
+.card-wrapper {
+  margin: 0 auto;
+  width: 316px;
+  height: 316px;
+  position: relative;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.card {
+  width: 300px;
+  height: 300px;
+  background-color: #000;
+  position: relative;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.card h2 {
+  font-size: 2rem;
+  color: #ff4a4a;
+  text-align: center;
+  z-index: 2;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 140%;
+  background-image: linear-gradient(180deg, #ff1b1b, #ff8585);
+  animation: rotate 3s linear infinite;
+  border-radius: inherit;
+
+}
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  background-color: #030029;
+  border-radius: inherit;
+}
+.card-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 140%;
+  background-image: linear-gradient(0, #ff1b1b, #ff8585);
+  animation: rotate 3s linear infinite;
+  border-radius: inherit;
+
+}
+.card-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  background-color: #030029;
+  border-radius: inherit;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* -------------------------------------------------------------------- */
